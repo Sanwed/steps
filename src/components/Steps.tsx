@@ -24,7 +24,7 @@ function Steps() {
     const sameDateTask = tasks.findIndex((task) => task.date === form.date)
     if (sameDateTask !== -1) {
       const tasksCopy = tasks.slice()
-      tasksCopy[sameDateTask].distance = form.distance
+      tasksCopy[sameDateTask].distance = `${+tasksCopy[sameDateTask].distance + +form.distance}`
       setTasks(tasksCopy)
     } else {
       setTasks(prevState => [...prevState, {id: generateId(), date: form.date, distance: form.distance}])
